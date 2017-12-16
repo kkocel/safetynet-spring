@@ -1,7 +1,7 @@
 package com.example.safetynet.service
 
-import com.example.safetynet.model.AttestationException
-import com.example.safetynet.model.AttestationStatement
+import com.example.safetynet.repository.AttestationException
+import com.example.safetynet.repository.AttestationStatement
 import com.example.safetynet.repository.JwtTokenVerifierRepository
 import com.google.common.io.BaseEncoding
 import org.springframework.stereotype.Component

@@ -1,3 +1,3 @@
-package com.example.safetynet.model
+package com.example.safetynet.repository
 
 class AttestationException(message: String) : IllegalArgumentException(message)

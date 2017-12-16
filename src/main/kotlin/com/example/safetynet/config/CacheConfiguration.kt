@@ -1,6 +1,6 @@
 package com.example.safetynet.config
 
-import com.example.safetynet.model.UserIdentifier
+import com.example.safetynet.repository.UserIdentifier
 import com.google.common.cache.Cache
 import com.google.common.cache.CacheBuilder
 import org.springframework.context.annotation.Bean

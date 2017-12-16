@@ -1,6 +1,6 @@
 package com.example.safetynet.service
 
-import com.example.safetynet.model.UserIdentifier
+import com.example.safetynet.repository.UserIdentifier
 import com.google.common.cache.Cache
 import org.springframework.stereotype.Component
 import reactor.core.publisher.Mono

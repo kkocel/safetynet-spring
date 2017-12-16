@@ -1,6 +1,6 @@
 package com.example.safetynet.controller
 
-import com.example.safetynet.model.UserIdentifier
+import com.example.safetynet.repository.UserIdentifier
 import com.example.safetynet.service.LoginService
 import com.example.safetynet.service.NonceService
 import org.springframework.web.bind.annotation.GetMapping

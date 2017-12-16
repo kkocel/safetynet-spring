@@ -1,3 +1,3 @@
-package com.example.safetynet.model
+package com.example.safetynet.repository
 
 data class UserIdentifier(val login: String, val deviceId: String)

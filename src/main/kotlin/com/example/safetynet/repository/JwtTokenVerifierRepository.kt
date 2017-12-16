@@ -1,7 +1,5 @@
 package com.example.safetynet.repository
 
-import com.example.safetynet.model.AttestationException
-import com.example.safetynet.model.AttestationStatement
 import com.google.api.client.json.gson.GsonFactory
 import com.google.api.client.json.webtoken.JsonWebSignature
 import org.apache.http.conn.ssl.DefaultHostnameVerifier
