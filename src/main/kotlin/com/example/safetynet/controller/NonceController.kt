@@ -17,7 +17,9 @@ class NonceController(val nonceService: NonceService, val loginService: LoginSer
             nonceService.generateNonce(UserIdentifier(login, deviceId))
 
     @PostMapping("/login")
-    fun login(@RequestParam login: String, @RequestParam password: String, @RequestParam jwt: String): Mono<Void> =
-            loginService.loginUser(login, password, jwt)
+    fun login(request: LoginRequest): Mono<Void> =
+            loginService.loginUser(request.login, request.password, request.jwt)
                     .map { null }
 }
+
+data class LoginRequest(val login: String, val password:String, val jwt:String)
