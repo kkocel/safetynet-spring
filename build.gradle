@@ -1,7 +1,7 @@
 buildscript {
     ext {
         kotlinVersion = '1.2.0'
-        springBootVersion = '2.0.0.M6'
+        springBootVersion = '2.0.0.M7'
     }
     repositories {
         mavenCentral()
@@ -24,6 +24,7 @@ apply plugin: 'io.spring.dependency-management'
 group = 'com.example.safetynet'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
+
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
@@ -37,15 +38,17 @@ repositories {
     maven { url "https://repo.spring.io/milestone" }
 }
 
-
 dependencies {
-    compile "org.springframework.boot:spring-boot-starter-webflux"
-    compile "org.springframework.boot:spring-boot-starter-web"
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion"
-    compile "org.jetbrains.kotlin:kotlin-reflect"
-    compile group: 'com.google.http-client', name: 'google-http-client-gson', version: '1.23.0'
-    compile "com.google.http-client:google-http-client-gson:1.23.0"
-    compile "org.apache.httpcomponents:httpclient:4.5.4"
-    compile "com.google.guava:guava:23.5-jre"
-    testCompile "org.springframework.boot:spring-boot-starter-test"
+//    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.springframework.boot:spring-boot-starter-webflux"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+    implementation "io.projectreactor:reactor-core:3.1.2.RELEASE"
+    implementation "com.google.http-client:google-http-client-gson:1.23.0"
+    implementation "com.google.http-client:google-http-client-gson:1.23.0"
+    implementation "org.apache.httpcomponents:httpclient:4.5.4"
+    implementation "com.google.guava:guava:23.5-jre"
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+    testImplementation 'io.rest-assured:rest-assured:3.0.6'
+    testImplementation "io.projectreactor:reactor-test:3.1.2.RELEASE"
 }
