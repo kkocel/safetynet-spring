@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner
 
 @RunWith(SpringRunner::class)
 @SpringBootTest
-class SafetynetApplicationTests {
+class SafetyNetApplicationTests {
 
 	@Test
 	fun contextLoads() {

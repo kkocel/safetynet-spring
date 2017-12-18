@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class SafetynetApplication
+class SafetyNetApplication
 
 fun main(args: Array<String>) {
-    runApplication<SafetynetApplication>(*args)
+    runApplication<SafetyNetApplication>(*args)
 }
