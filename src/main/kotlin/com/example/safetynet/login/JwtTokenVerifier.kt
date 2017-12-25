@@ -1,4 +1,4 @@
-package com.example.safetynet.repository
+package com.example.safetynet.login
 
 import com.google.api.client.json.gson.GsonFactory
 import com.google.api.client.json.webtoken.JsonWebSignature
@@ -11,7 +11,7 @@ import java.security.cert.X509Certificate
 import javax.net.ssl.SSLException
 
 @Component
-class JwtTokenVerifierRepository {
+class JwtTokenVerifier {
 
     fun parseAndVerify(signedAttestationStatement: String): Mono<AttestationStatement> =
             Mono.fromCallable {
@@ -34,7 +34,6 @@ class JwtTokenVerifierRepository {
                     throw AttestationException("Error during cryptographic verification of the JWS signature.")
                 }
 
-                // Verify the hostname of the certificate.
                 try {
                     DefaultHostnameVerifier().verify("attest.android.com", cert)
                 } catch (e: SSLException) {

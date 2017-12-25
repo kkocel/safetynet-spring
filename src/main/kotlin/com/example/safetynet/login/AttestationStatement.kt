@@ -1,9 +1,9 @@
-package com.example.safetynet.repository
+package com.example.safetynet.login
 
 import com.google.api.client.json.webtoken.JsonWebToken
 import com.google.api.client.util.Key
 
-@Suppress("ArrayInDataClass", "unused")
+@Suppress("ArrayInDataClass")
 data class AttestationStatement(
         @field:Key var nonce: String = "",
         @field:Key var timestampMs: Long = 0,
