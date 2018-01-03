@@ -24,7 +24,7 @@ class JwtTokenVerifier {
                     throw AttestationException("Invalid format of JWS.")
                 }
 
-                val cert: X509Certificate
+                val cert: X509Certificate?
                 try {
                     cert = jws.verifySignature()
                     if (cert == null) {

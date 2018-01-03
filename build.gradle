@@ -25,6 +25,17 @@ group = 'com.example.safetynet'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
+ext {
+    googleHttpClientGsonVersion = '1.23.0'
+    guavaVersion = '23.5-jre'
+    httpcomponentsHttpclientVersion = '4.5.4'
+    jacksonModuleKotlinVersion = '2.9.0'
+    reactorCoreVersion = '3.1.2.RELEASE'
+    springBootVersion = '2.0.0.M7'
+
+    restAssuredVersion = '3.0.6'
+}
+
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
@@ -39,16 +50,16 @@ repositories {
 }
 
 dependencies {
-//    implementation "org.springframework.boot:spring-boot-starter-web"
     implementation "org.springframework.boot:spring-boot-starter-webflux"
+    implementation "com.google.http-client:google-http-client-gson:$googleHttpClientGsonVersion"
+    implementation "com.google.guava:guava:$guavaVersion"
+    implementation "org.apache.httpcomponents:httpclient:$httpcomponentsHttpclientVersion"
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonModuleKotlinVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion"
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
-    implementation "io.projectreactor:reactor-core:3.1.2.RELEASE"
-    implementation "com.google.http-client:google-http-client-gson:1.23.0"
-    implementation "com.google.http-client:google-http-client-gson:1.23.0"
-    implementation "org.apache.httpcomponents:httpclient:4.5.4"
-    implementation "com.google.guava:guava:23.5-jre"
+    implementation "io.projectreactor:reactor-core:$reactorCoreVersion"
+
+    testImplementation "io.rest-assured:rest-assured:$restAssuredVersion"
     testImplementation "org.springframework.boot:spring-boot-starter-test"
-    testImplementation 'io.rest-assured:rest-assured:3.0.6'
-    testImplementation "io.projectreactor:reactor-test:3.1.2.RELEASE"
+    testImplementation "io.projectreactor:reactor-test:$reactorCoreVersion"
 }
