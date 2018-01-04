@@ -4,13 +4,15 @@ import com.example.safetynet.cache.NonceCache
 import com.example.safetynet.nonce.UserIdentifier
 import com.google.common.cache.Cache
 import com.google.common.cache.CacheBuilder
+import org.springframework.context.annotation.Primary
 import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Component
 import java.util.concurrent.TimeUnit
 
 @Component
+@Primary
 @Profile("test")
-internal class MemoryNonceCache(val cache: Cache<String, UserIdentifier> = CacheBuilder.newBuilder()
+internal class NonceTestCache(val cache: Cache<String, UserIdentifier> = CacheBuilder.newBuilder()
         .expireAfterWrite(15, TimeUnit.MINUTES)
         .build()) : NonceCache {
 

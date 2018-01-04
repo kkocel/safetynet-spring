@@ -1,14 +1,12 @@
 package com.example.safetynet.nonce
 
 import com.example.safetynet.cache.NonceCache
-import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Component
 import reactor.core.publisher.Mono
 import java.math.BigInteger
 import java.security.SecureRandom
 
 @Component
-@Profile("production")
 internal class NonceProvider(val nonceCache: NonceCache) {
 
     fun generateNonce(userIdentifier: UserIdentifier): Mono<String> =
