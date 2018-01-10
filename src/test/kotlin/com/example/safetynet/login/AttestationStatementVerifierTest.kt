@@ -46,7 +46,9 @@ class AttestationStatementVerifierTest {
         // given
         val attestationStatement = AttestationStatement(
                 apkPackageName = LoginVerifier.PACKAGE_NAME,
-                apkCertificateDigestSha256 = arrayOf("ksTaHbdsaCRYgmvfEsnc106hyhqtC3l9he8qOle52Qc="))
+                apkCertificateDigestSha256 = arrayOf("ksTaHbdsaCRYgmvfEsnc106hyhqtC3l9he8qOle52Qc="),
+                ctsProfileMatch = false,
+                basicIntegrity = false)
 
         val exception = shouldThrow<AttestationException> {
             // when
@@ -63,7 +65,26 @@ class AttestationStatementVerifierTest {
         val attestationStatement = AttestationStatement(
                 apkPackageName = LoginVerifier.PACKAGE_NAME,
                 apkCertificateDigestSha256 = arrayOf("ksTaHbdsaCRYgmvfEsnc106hyhqtC3l9he8qOle52Qc="),
+                basicIntegrity = false,
                 ctsProfileMatch = true)
+
+        val exception = shouldThrow<AttestationException> {
+            // when
+            attestationStatementVerifier.verify(attestationStatement)
+        }
+
+        // then
+        exception.message!! should startWith("Basic integrity or CTS profile match is not passed.")
+    }
+
+    @Test
+    fun `should fail with CTS profile mismatch even if basic integrity is ok`() {
+        // given
+        val attestationStatement = AttestationStatement(
+                apkPackageName = LoginVerifier.PACKAGE_NAME,
+                apkCertificateDigestSha256 = arrayOf("ksTaHbdsaCRYgmvfEsnc106hyhqtC3l9he8qOle52Qc="),
+                basicIntegrity = true,
+                ctsProfileMatch = false)
 
         val exception = shouldThrow<AttestationException> {
             // when
