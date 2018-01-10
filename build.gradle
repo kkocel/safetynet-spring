@@ -31,6 +31,7 @@ ext {
     guavaVersion = '23.5-jre'
     httpcomponentsHttpclientVersion = '4.5.4'
     jacksonModuleKotlinVersion = '2.9.0'
+    kotlinTestVersion = '2.0.7'
     reactorCoreVersion = '3.1.2.RELEASE'
     springBootVersion = '2.0.0.M7'
 
@@ -60,6 +61,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
     implementation "io.projectreactor:reactor-core:$reactorCoreVersion"
 
+    testImplementation "io.kotlintest:kotlintest:$kotlinTestVersion"
     testImplementation "io.rest-assured:rest-assured:$restAssuredVersion"
     testImplementation "org.springframework.boot:spring-boot-starter-test"
     testImplementation "io.projectreactor:reactor-test:$reactorCoreVersion"
