@@ -20,7 +20,7 @@ class JwtTokenVerifier {
                 try {
                     jws = JsonWebSignature.parser(GsonFactory.getDefaultInstance()).setPayloadClass(AttestationStatement::class.java)
                             .parse(signedAttestationStatement)
-                } catch (e: IOException) {
+                } catch (e: Exception) {
                     throw AttestationException("Invalid format of JWS.")
                 }
 
