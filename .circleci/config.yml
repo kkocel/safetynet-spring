@@ -39,16 +39,21 @@ jobs:
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
       # run tests!
-      - run: gradle test
+      - run: gradle test jacocoTestReport
 
+      # trigger codecov
+      - run: bash <(curl -s https://codecov.io/bash)
+      
       - run:
           name: Save test results
           command: |
             mkdir -p ~/junit/
             find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/junit/ \;
+            find . -type f -regex ".*/jacoco/test/.*xml" -exec cp {} ~/junit/ \;
           when: always
       - store_test_results:
           path: ~/junit
       - store_artifacts:
           path: ~/junit
+
 
