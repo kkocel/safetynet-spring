@@ -1,6 +1,7 @@
 # Secure implementation of SafetyNet Attestation API developed in Spring
 
 [![CircleCI](https://circleci.com/gh/kkocel/safetynet-spring/tree/master.svg?style=svg&circle-token=c1e9bcee07026c04f80bb3ddb96b3084bdab5b45)](https://circleci.com/gh/kkocel/safetynet-spring/tree/master)
+[![codecov](https://codecov.io/gh/kkocel/safetynet-spring/branch/master/graph/badge.svg)](https://codecov.io/gh/kkocel/safetynet-spring)
 [![Apache License 2](http://img.shields.io/badge/license-ASF2-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.txt)
 
 This project aims to provide implementation of secure flow of [SafetyNet Attestation API](https://developer.android.com/training/safetynet/attestation.html) by Google.
