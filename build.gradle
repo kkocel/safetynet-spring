@@ -36,6 +36,7 @@ ext {
     springBootVersion = '2.0.0.M7'
 
     restAssuredVersion = '3.0.6'
+    mockkVersion = '1.6.3'
 }
 
 compileKotlin {
@@ -63,6 +64,7 @@ dependencies {
 
     testImplementation "io.kotlintest:kotlintest:$kotlinTestVersion"
     testImplementation "io.rest-assured:rest-assured:$restAssuredVersion"
+    testImplementation "io.mockk:mockk:$mockkVersion"
     testImplementation "org.springframework.boot:spring-boot-starter-test"
     testImplementation "io.projectreactor:reactor-test:$reactorCoreVersion"
 }

@@ -1,25 +1,21 @@
 package com.example.safetynet.login
 
-import com.google.api.client.json.gson.GsonFactory
 import com.google.api.client.json.webtoken.JsonWebSignature
-import org.apache.http.conn.ssl.DefaultHostnameVerifier
 import org.springframework.stereotype.Component
 import reactor.core.publisher.Mono
-import java.io.IOException
 import java.security.GeneralSecurityException
 import java.security.cert.X509Certificate
 import javax.net.ssl.SSLException
 
 @Component
-class JwtTokenVerifier {
+class JwtTokenVerifier(val jwsParser: JwsParser) {
 
     fun parseAndVerify(signedAttestationStatement: String): Mono<AttestationStatement> =
             Mono.fromCallable {
                 val jws: JsonWebSignature
 
                 try {
-                    jws = JsonWebSignature.parser(GsonFactory.getDefaultInstance()).setPayloadClass(AttestationStatement::class.java)
-                            .parse(signedAttestationStatement)
+                    jws = jwsParser.parse(signedAttestationStatement)
                 } catch (e: Exception) {
                     throw AttestationException("Invalid format of JWS.")
                 }
@@ -35,7 +31,7 @@ class JwtTokenVerifier {
                 }
 
                 try {
-                    DefaultHostnameVerifier().verify("attest.android.com", cert)
+                    jwsParser.verifyCertificateHostname("attest.android.com", cert)
                 } catch (e: SSLException) {
                     throw AttestationException("Certificate isn't issued for the hostname: attest.android.com.")
                 }
