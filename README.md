@@ -18,6 +18,34 @@ mobile phone.
 
 More on that topic: https://www.synopsys.com/blogs/software-security/using-safetynet-api/
 
+## Contents of this project
+This project contains two endpoints - first one gets nonce and second one verifies JWT token obtained from Google 
+services.
+
+### Nonce endpoint
+
+```http request
+GET /nonce?login=username&deviceId=uniqueDeviceId  HTTP/1.1
+```
+
+In order to get a nonce application needs to send user login and unique device id.
+
+Service generates unique nonce and stores it along given login and device id in the temporary cache with TTL.
+
+### Login endpoint
+
+```http request
+POST /login HTTP/1.1
+Content-Type: application/json; charset=utf-8
+
+{
+  "login": "username",
+  "password": "mySecretPassword",
+  "jwt": "eyJhbGciOiJSU..."
+```
+
+This endpoint is responsible for user 'login' along with verification of jwt token.
+
 ## Running the tests
 
 ```
